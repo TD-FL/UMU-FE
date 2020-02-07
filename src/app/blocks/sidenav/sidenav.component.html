@@ -1,0 +1,30 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+    <mat-toolbar color="primary" class="example-toolbar shadow">
+        <button mat-icon-button (click)="snav.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <h1 class="example-app-name"><a style="color: white; text-decoration: none;"
+                                        routerLink="/">{{ selectedFaculty?.ShortName | uppercase }}</a></h1>
+        <small class="header-small">{{selectedFaculty?.LongName}}</small>
+
+        <span style="flex: 1 1 auto;"></span>
+        <button mat-flat-button color="primary" (click)="goSwagger()">API</button>
+        <button mat-flat-button color="primary" routerLink="/about">O nas</button>
+
+    </mat-toolbar>
+</div>
+
+<div class="schedule">
+    <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+        <mat-sidenav #snav [fixedInViewport]="mobileQuery.matches" [mode]="mobileQuery.matches ? 'over' : 'side'"
+                     [opened]="true" class="side" fixedTopGap="56">
+            <app-schedule-picker (selectedEvents)="onEventsSelected($event)"
+                                 (selectedFaculty)="selectedFaculty = $event"></app-schedule-picker>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <app-week-picker (weekChanged)="onWeekChanged($event)"></app-week-picker>
+            <app-day-of-week *ngFor="let event of schedule" [date]="event.date" [dayOfWeek]="event.getDayString()"
+                             [events]="event.events"></app-day-of-week>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

@@ -1,0 +1,33 @@
+<div style="overflow-y: auto">
+    <app-basic-topbar></app-basic-topbar>
+
+    <header style="padding-top: 70px; background: #3f51b5; overflow: hidden;">
+        <div style="color: #fff; text-align: center; padding-top: 60px;">
+            <h1 style="font-size: 56px; font-weight: 300; line-height: 56px; margin: 15px 5px;">UMU</h1>
+            <h2 style="font-size: 18px; font-weight: 300; line-height: 28px; margin: 15px 0 25px;">Urnik Mariborske
+                Univerze</h2>
+        </div>
+
+        <mat-card class="card">
+            <mat-card-content>
+                <mat-form-field style="width: 100%">
+                    <mat-label>Fakulteta</mat-label>
+                    <mat-select (selectionChange)="onFacultySelected($event)" [formControl]="facultyControl"
+                                [errorStateMatcher]="matcher" required>
+                        <mat-option>/</mat-option>
+                        <mat-option *ngFor="let faculty of faculties"
+                                    [value]="faculty">{{ faculty.LongName }}</mat-option>
+                    </mat-select>
+                    <mat-hint>Izberite fakulteto!</mat-hint>
+                    <mat-error *ngIf="facultyControl.hasError('required')">Prosim izberite fakulteto</mat-error>
+                </mat-form-field>
+            </mat-card-content>
+        </mat-card>
+        <div class="play">
+          <a  href='https://play.google.com/store/apps/details?id=com.urnikium.lukak.umu'><img style="width: 200px; height: auto" alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a>
+        </div>
+    </header>
+    <app-about></app-about>
+    <app-footer></app-footer>
+
+</div>

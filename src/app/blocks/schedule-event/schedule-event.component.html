@@ -1,0 +1,32 @@
+<div>
+    <div class="flexo">
+        <div style="flex: 0.03">
+            <div class="flexo"
+                 style="margin-left: 4px; flex-wrap: wrap; align-content: space-between; height: 100%; align-content: stretch;">
+                <div style="align-self: flex-start"><b>{{eventek.StartTime}}</b></div>
+                <div style=" align-self: flex-end;"><b>{{eventek.end}}</b></div>
+            </div>
+        </div>
+        <div style="width: 10px;"></div>
+        <div style="flex: 1">
+            <div>
+                <b>{{eventek.Course}}</b>
+            </div>
+            <div>
+                <mat-icon inline="true" class="icon">group</mat-icon>&nbsp;{{eventek.Group.Field}}
+                , {{eventek.Group.Year}}. letnik
+            </div>
+            <div>
+                <mat-icon inline="true" class="icon">school</mat-icon>&nbsp;<b>({{eventek.Type}})
+                - {{eventek.Group.SubGroup}}</b>
+            </div>
+            <div>
+                <mat-icon inline="true" class="icon">person</mat-icon>&nbsp;{{eventek.Professor}}
+            </div>
+            <div>
+                <mat-icon inline="true" class="icon">location_on</mat-icon>&nbsp;{{eventek.Room}}
+            </div>
+        </div>
+    </div>
+    <hr>
+</div>

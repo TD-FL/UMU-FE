@@ -1,0 +1,71 @@
+<div>
+    <mat-tab-group>
+        <mat-tab label="Po smeri">
+            <div class="side-content">
+                <mat-form-field class="picker ciganija">
+                    <mat-label>Smer</mat-label>
+                    <mat-select  (selectionChange)="changeGroup($event)" [(value)]="selectedGroup"
+                                [formControl]="groupControl"
+                                required>
+                        <mat-option *ngFor="let groupYear of groupYears" [value]="groupYear">
+                            {{groupYear.Name}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="groupControl.hasError('required')">Prosim izberite smer</mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="picker">
+                    <mat-label>Letnik</mat-label>
+                    <mat-select (selectionChange)="changeYear($event, null)" [formControl]="yearControl" required>
+                        <mat-option *ngFor="let year of selectedGroup.Years" [value]="year">
+                            {{year}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="groupControl.hasError('required')">Prosim izberite letnik</mat-error>
+                </mat-form-field>
+
+
+                <mat-select-autocomplete class="picker"
+                                         [selectPlaceholder]="'Skupina'"
+                                         [placeholder]="'Skupina'"
+                                         [options]="subGroups"
+                                         [display]="'name'"
+                                         [value]="'name'"
+                                         [multiple]='true'
+                                         [labelCount]="2"
+                                         [selectedOptions]="opt"
+                                         (selectionChange)="subGroupSelected($event)">
+                </mat-select-autocomplete>
+
+            </div>
+        </mat-tab>
+
+        <mat-tab label="Po predmetu">
+            <div class="side-content">
+                <mat-form-field class="picker">
+                    <mat-label>Predmet</mat-label>
+                    <mat-select (selectionChange)="changeSub($event)" [formControl]="subjectControl" required>
+                        <mat-option *ngFor="let subject of subjects" [value]="subject">
+                            {{subject}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="groupControl.hasError('required')">Prosim izberite predmet</mat-error>
+                </mat-form-field>
+            </div>
+        </mat-tab>
+        <mat-tab label="Po profesorju">
+            <div class="side-content">
+                <mat-form-field class="picker">
+                    <mat-label>Profesor</mat-label>
+                    <mat-select (selectionChange)="changeProf($event)" [formControl]="professorControl" required>
+                        <mat-option *ngFor="let professor of professors" [value]="professor">
+                            {{professor}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="groupControl.hasError('required')">Prosim izberite profesorja</mat-error>
+                </mat-form-field>
+            </div>
+        </mat-tab>
+
+    </mat-tab-group>
+</div>

@@ -1,0 +1,8 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+    <mat-toolbar color="primary" class="example-toolbar shadow">
+        <h1 class="example-app-name"><a style="color: white; text-decoration: none;" routerLink="/">UMU</a></h1>
+        <span style="flex: 1 1 auto;"></span>
+        <button mat-flat-button color="primary" (click)="goSwagger()">API</button>
+        <button mat-flat-button color="primary" routerLink="/about">O nas</button>
+    </mat-toolbar>
+</div>

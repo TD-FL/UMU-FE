@@ -1,0 +1,10 @@
+<div class="padding">
+    <div class="primary" style="margin-bottom:5px;">
+        <div>
+            <b>{{dayOfWeek}}, {{date | date: "dd. MM." }}</b>
+        </div>
+    </div>
+    <div *ngIf="events.length !== 0">
+        <app-schedule-event *ngFor="let event of events" [eventek]="event"></app-schedule-event>
+    </div>
+</div>

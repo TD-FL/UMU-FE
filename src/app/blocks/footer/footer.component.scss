@@ -1,0 +1,32 @@
+.app-footer {
+    padding: 12px;
+    font-size: 12px;
+    margin-top: 40px;
+    background: #3f51b5;
+    color: #fff;
+}
+
+.footer-list {
+    align-items: center;
+    display: flex;
+    flex-flow: row wrap;
+    padding: 8px;
+}
+
+.footer-logo {
+    flex: 1;
+}
+
+.footer-ver {
+    flex: 1;
+    text-align: center;
+}
+
+.footer-copy {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    flex-direction: column;
+    min-width: 225px;
+    text-align: center;
+}

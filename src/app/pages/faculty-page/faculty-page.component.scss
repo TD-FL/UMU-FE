@@ -1,0 +1,59 @@
+.umu-app {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+@media only screen and (max-width: 1026px) {
+  .card {
+    margin: 50px auto;
+    max-width: 80%;
+  }
+
+  .form {
+    width: 100%;
+  }
+
+  .play {
+    max-width: 250px;
+    margin: 50px auto;
+  }
+
+  ::ng-deep .mat-select-panel mat-option.mat-option {
+    line-height: 3em;
+  }
+
+}
+
+@media only screen and (min-width: 1026px) {
+  .card {
+    margin: 100px auto 50px;
+    max-width: 400px;
+  }
+
+  .form {
+    width: 100%;
+  }
+
+  .play {
+    margin: 25px auto 50px;
+    max-width: 200px;
+  }
+
+  ::ng-deep .mat-select-panel mat-option.mat-option {
+   line-height: 2.5em;
+ }
+}
+
+::ng-deep .mat-select-panel mat-option.mat-option {
+  height: unset;
+  border-bottom: 1px solid rgba(173, 173, 173, 0.87);
+}
+
+::ng-deep .mat-option-text.mat-option-text {
+  white-space: normal;
+}

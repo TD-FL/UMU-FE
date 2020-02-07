@@ -1,0 +1,15 @@
+<div>
+    <div class="flexo">
+        <div style="flex: 1 1;"></div>
+        <div style="flex: 0.01">
+            <mat-form-field class="picker">
+                <mat-label>Teden</mat-label>
+                <mat-select #weekSelect (selectionChange)="changeWeek($event)" [formControl]="weekControl">
+                    <mat-option *ngFor="let week of weeks" [value]="week">
+                        {{week}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+</div>
